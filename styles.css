@@ -171,15 +171,20 @@ p {
 
 /* Hero actions - buttons stacked with equal width */
 .hero-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
     max-width: 320px;
 }
 
-.hero-actions .btn {
-    width: 100%;
+.hero-actions .btn,
+.hero-actions .btn.btn-lg,
+.hero-actions .btn.btn-primary,
+.hero-actions .btn.btn-outline {
+    width: 100% !important;
+    min-width: 100% !important;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .breathe-badge {
