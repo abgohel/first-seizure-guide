@@ -1,0 +1,640 @@
+/* First Seizure - Optimized UX/UI Styles */
+
+:root {
+    /* Color Palette - Higher Contrast for Readability */
+    --primary: #8a63b5;
+    --primary-dark: #6a4c8c;
+    --primary-light: #f3eafa;
+
+    --text-main: #2d2a32;
+    /* Much darker for readability */
+    --text-muted: #5e5b66;
+
+    --danger: #d32f2f;
+    --danger-bg: #fdecea;
+    --success: #2e7d32;
+    --success-bg: #e8f5e9;
+
+    --bg-body: #fdfbff;
+    --bg-card: #ffffff;
+    --border: #e0e0e0;
+
+    /* Spacing & Layout */
+    --container-width: 900px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --shadow-soft: 0 4px 20px rgba(138, 99, 181, 0.08);
+    --shadow-hover: 0 8px 30px rgba(138, 99, 181, 0.15);
+
+    /* Typography */
+    --font-heading: 'Nunito', sans-serif;
+    --font-body: 'Quicksand', sans-serif;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 18px;
+    /* Larger base font for tired eyes */
+    padding-bottom: 80px;
+    /* Space for mobile action bar */
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    color: var(--text-main);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+}
+
+p {
+    margin-bottom: 1.2rem;
+}
+
+/* Utilities */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+.section-alt {
+    background: var(--primary-light);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.nav-link.active-danger {
+    color: var(--danger);
+}
+
+/* Hero Section */
+.hero {
+    padding: 3rem 0;
+    background: linear-gradient(180deg, var(--bg-body) 0%, var(--primary-light) 100%);
+}
+
+.hero-grid {
+    display: grid;
+    gap: 3rem;
+    md-grid-template-columns: 1.2fr 0.8fr;
+}
+
+.breathe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.breathe-dot {
+    width: 10px;
+    height: 10px;
+    background: #4caf50;
+    border-radius: 50%;
+    animation: breathe 4s infinite;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-outline {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: white;
+}
+
+.btn-lg {
+    font-size: 1.1rem;
+    padding: 16px 32px;
+}
+
+/* Timer Card - Central Tool */
+.timer-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-hover);
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.timer-status {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.timer-display {
+    font-family: monospace;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 1rem 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.btn-timer-action {
+    background: var(--primary);
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 16px;
+    border-radius: 50px;
+    border: none;
+}
+
+.timer-card.running .timer-display {
+    color: var(--danger);
+}
+
+.timer-card.running .btn-timer-action {
+    background: var(--text-main);
+}
+
+/* Emergency Section */
+.emergency-alert-box {
+    background: var(--danger-bg);
+    border: 2px solid var(--danger);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.alert-header h2 {
+    color: var(--danger);
+    margin: 0;
+}
+
+.emergency-checklist {
+    list-style: none;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.emergency-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.btn-emergency-call {
+    background: var(--danger);
+    color: white;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+/* Do's and Don'ts */
+.guide-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.guide-card {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 2px solid transparent;
+}
+
+.do-card {
+    background: var(--success-bg);
+    border-color: var(--success);
+}
+
+.dont-card {
+    background: var(--danger-bg);
+    border-color: var(--danger);
+}
+
+.guide-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.guide-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.guide-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Checklist */
+.checklist-container {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.checklist-group {
+    margin-bottom: 2rem;
+}
+
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 8px;
+}
+
+.check-item:hover {
+    background: var(--primary-light);
+}
+
+.checklist-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.check-box {
+    min-width: 24px;
+    height: 24px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checklist-input:checked+.check-box {
+    background: var(--primary);
+}
+
+.checklist-input:checked+.check-box::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+}
+
+.checklist-input:checked~.check-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Mobile Action Bar */
+.mobile-action-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 12px 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border);
+}
+
+.action-btn {
+    flex: 1;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--bg-body);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.action-btn.btn-danger {
+    background: var(--danger);
+    color: white;
+    border: none;
+}
+
+/* Desktop Tweaks */
+@media (min-width: 769px) {
+
+    .mobile-action-bar,
+    .nav-toggle {
+        display: none;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 400px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    /* Simplified for demo, assume hamburger logic in JS */
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+}
+
+/* Smooth transitions for theme switching */
+body,
+.header,
+.mobile-action-bar,
+.timer-card,
+.checklist-container,
+.guide-card,
+.emergency-alert-box,
+.info-card,
+.btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --bg-body: #1a1625;
+    --bg-card: #241e32;
+    --text-main: #f0f0f0;
+    --text-muted: #b0b0b0;
+    --border: #3a3545;
+    --primary-light: #2a2438;
+    --shadow-soft: none;
+}
+
+body.dark-mode .header,
+body.dark-mode .mobile-action-bar,
+body.dark-mode .timer-card,
+body.dark-mode .checklist-container {
+    background: var(--bg-card);
+}
+
+body.dark-mode .emergency-checklist li {
+    background: #3e2020;
+    color: #ffcccc;
+}
+
+body.dark-mode .guide-card.do-card {
+    background: #1b3320;
+    color: #cceed0;
+}
+
+body.dark-mode .guide-card.dont-card {
+    background: #3e2020;
+    color: #ffcccc;
+}
+
+body.dark-mode .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+body.dark-mode .breathe-badge {
+    background: var(--bg-card);
+    color: var(--text-main);
+}
+
+body.dark-mode .btn-outline {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: transparent;
+}
+
+/* Progress bar */
+.progress-bar-container {
+    margin-bottom: 1.5rem;
+}
+
+.progress-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.progress-track {
+    background: var(--border);
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: var(--primary);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Reassurance banner */
+.reassurance-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--primary-light);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-top: 2rem;
+}
+
+.reassurance-banner .icon {
+    font-size: 2rem;
+}
+
+/* Info grid */
+.info-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.info-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.info-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Final section */
+.section-final {
+    background: var(--primary-light);
+}
+
+.share-actions {
+    margin-top: 1.5rem;
+}
