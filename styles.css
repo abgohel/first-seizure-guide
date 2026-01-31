@@ -464,6 +464,7 @@ p {
     .hero-actions {
         display: flex;
         flex-direction: column;
+        gap: 16px;
     }
 
     h1 {
@@ -543,14 +544,15 @@ body.dark-mode .logo {
 }
 
 body.dark-mode .control-btn {
-    background: #2a2438;
-    border: 2px solid #6b5b8a;
-    color: #e0d0f0;
+    background: #3a3050;
+    border: 2px solid #9b6dc6;
+    color: #f0e8ff;
+    font-weight: 700;
 }
 
 body.dark-mode .control-btn:hover {
-    background: #3a3050;
-    border-color: var(--primary);
+    background: #4a4060;
+    border-color: #c9a8e8;
 }
 
 /* Dark mode buttons - HIGH CONTRAST */

@@ -232,7 +232,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.dataset.i18n;
             if (t[key]) {
-                el.textContent = t[key];
+                // Use innerHTML for elements that may contain HTML (like list items with <strong>)
+                el.innerHTML = t[key];
             }
         });
 
