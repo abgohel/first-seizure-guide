@@ -523,20 +523,58 @@ body,
 
 /* Dark Mode Overrides */
 body.dark-mode {
-    --bg-body: #1a1625;
-    --bg-card: #241e32;
-    --text-main: #f0f0f0;
-    --text-muted: #b0b0b0;
-    --border: #3a3545;
+    --bg-body: #0f0d14;
+    --bg-card: #1a1625;
+    --text-main: #f5f5f5;
+    --text-muted: #c0b8d0;
+    --border: #4a4060;
     --primary-light: #2a2438;
-    --shadow-soft: none;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-body.dark-mode .header,
+/* Dark mode header - better contrast */
+body.dark-mode .header {
+    background: rgba(15, 13, 20, 0.95);
+    border-bottom: 1px solid var(--border);
+}
+
+body.dark-mode .logo {
+    color: #c9a8e8;
+}
+
+body.dark-mode .control-btn {
+    background: #2a2438;
+    border: 2px solid #6b5b8a;
+    color: #e0d0f0;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #3a3050;
+    border-color: var(--primary);
+}
+
+/* Dark mode buttons - HIGH CONTRAST */
+body.dark-mode .btn-primary {
+    background: #9b6dc6;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(155, 109, 198, 0.4);
+}
+
+body.dark-mode .btn-outline {
+    border: 2px solid #9b6dc6;
+    color: #c9a8e8;
+    background: rgba(155, 109, 198, 0.1);
+}
+
+body.dark-mode .btn-outline:hover {
+    background: rgba(155, 109, 198, 0.25);
+}
+
 body.dark-mode .mobile-action-bar,
 body.dark-mode .timer-card,
 body.dark-mode .checklist-container {
     background: var(--bg-card);
+    border: 1px solid var(--border);
 }
 
 body.dark-mode .emergency-checklist li {
@@ -560,14 +598,17 @@ body.dark-mode .info-card {
 }
 
 body.dark-mode .breathe-badge {
-    background: var(--bg-card);
-    color: var(--text-main);
+    background: #2a2438;
+    color: #e0d0f0;
+    border: 1px solid var(--border);
 }
 
-body.dark-mode .btn-outline {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: transparent;
+body.dark-mode .nav-link {
+    color: #c0b8d0;
+}
+
+body.dark-mode .nav-link.active-danger {
+    color: #ff8a8a;
 }
 
 /* Progress bar */
@@ -666,12 +707,18 @@ body.dark-mode .btn-outline {
 /* Mobile: Ghost button for "Next 48 Hours" */
 @media (max-width: 768px) {
     .btn-outline.btn-lg {
-        background: transparent;
-        border: 2px dashed var(--primary);
+        background: rgba(138, 99, 181, 0.1);
+        border: 2px solid var(--primary);
         color: var(--primary);
-        font-size: 0.9rem;
-        padding: 10px 20px;
-        min-height: 44px;
+        font-size: 0.95rem;
+        padding: 12px 24px;
+        min-height: 48px;
+    }
+
+    body.dark-mode .btn-outline.btn-lg {
+        background: rgba(155, 109, 198, 0.15);
+        border: 2px solid #9b6dc6;
+        color: #c9a8e8;
     }
 
     .btn-primary.btn-lg {
