@@ -1,4 +1,4 @@
-const CACHE_NAME = 'firstseizure-v1';
+const CACHE_NAME = 'firstseizure-v2';
 const ASSETS = [
     '/',
     '/index.html',
