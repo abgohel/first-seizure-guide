@@ -638,3 +638,70 @@ body.dark-mode .btn-outline {
 .share-actions {
     margin-top: 1.5rem;
 }
+
+/* ===== UX IMPROVEMENTS (Dr. Chen Review) ===== */
+
+/* Larger Touch Targets (48px minimum) */
+.check-item {
+    min-height: 48px;
+    padding: 12px 16px;
+}
+
+.control-btn {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px 16px;
+}
+
+.btn {
+    min-height: 48px;
+    padding: 14px 28px;
+}
+
+/* More spacing in header controls */
+.header-controls {
+    gap: 12px;
+}
+
+/* Mobile: Ghost button for "Next 48 Hours" */
+@media (max-width: 768px) {
+    .btn-outline.btn-lg {
+        background: transparent;
+        border: 2px dashed var(--primary);
+        color: var(--primary);
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        min-height: 44px;
+    }
+
+    .btn-primary.btn-lg {
+        box-shadow: 0 4px 12px rgba(138, 99, 181, 0.3);
+    }
+
+    /* Larger checklist checkboxes on mobile */
+    .check-box {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .breathe-dot {
+        animation: none;
+    }
+}
+
+/* Aria-live region for timer (screen readers) */
+.timer-display[aria-live] {
+    position: relative;
+}

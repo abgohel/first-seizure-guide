@@ -76,6 +76,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const secs = (elapsed % 60).toString().padStart(2, '0');
                 timerDisplay.textContent = `${mins}:${secs}`;
 
+                // Haptic pulse every minute (so caregiver can focus on patient)
+                if (elapsed > 0 && elapsed % 60 === 0 && navigator.vibrate) {
+                    navigator.vibrate(100); // Single short pulse
+                }
+
                 // 5 Minute Warning
                 if (elapsed >= 300) {
                     timerDisplay.style.color = 'var(--danger)';
