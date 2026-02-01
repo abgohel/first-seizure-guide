@@ -5,14 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description"
-        content="Immediate guide for first-time seizures. Timer tool, emergency checklist, and expert-reviewed advice for patients and families.">
+        content="Immediate guide for first-time seizures. Timer tool, emergency checklist, and expert-reviewed advice by epileptologists for patients and families.">
+    <meta name="keywords"
+        content="first seizure, seizure first aid, epilepsy, seizure timer, emergency seizure, convulsion help, what to do during seizure">
+    <meta name="author" content="Dr. Abhishek Gohel, Dr. Rutul Shah">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#9B7EBD">
+    <link rel="canonical" href="https://firstseizure.com/">
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="First Seizure Guide & Timer">
-    <meta property="og:description" content="Panic-free guide for seizures. Timer, emergency signs, and first aid.">
+    <meta property="og:url" content="https://firstseizure.com/">
+    <meta property="og:title" content="First Seizure Guide & Timer | Expert Help">
+    <meta property="og:description"
+        content="Panic-free guide for first-time seizures. Timer tool, emergency signs, and first aid by epileptologists.">
+    <meta property="og:image" content="https://firstseizure.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="FirstSeizure.com">
+    <meta property="og:locale" content="en_US">
 
-    <title>First Seizure | Guide & Timer</title>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="First Seizure Guide & Timer | Expert Help">
+    <meta name="twitter:description"
+        content="Panic-free guide for first-time seizures. Timer tool, emergency signs, and first aid.">
+    <meta name="twitter:image" content="https://firstseizure.com/og-image.png">
+
+    <title>First Seizure | Guide & Timer by Epileptologists</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "First Seizure Guide & Timer",
+        "description": "Expert guide for first-time seizures with timer tool and emergency checklist.",
+        "url": "https://firstseizure.com",
+        "author": [
+            {"@type": "Physician", "name": "Dr. Abhishek Gohel", "medicalSpecialty": "Epileptology"},
+            {"@type": "Physician", "name": "Dr. Rutul Shah", "medicalSpecialty": "Epileptology"}
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Gujarat Epilepsy & Neuro Clinic"
+        },
+        "medicalAudience": {"@type": "MedicalAudience", "audienceType": "Patient"},
+        "about": {"@type": "MedicalCondition", "name": "Seizure"}
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +62,11 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
     <script src="translations.js"></script>
+    <script defer src="https://analytics.meowachat.cloud/script.js"
+        data-website-id="5fe11c22-766f-4117-b3bf-36380bf8909a"></script>
 </head>
 
 <body>
@@ -375,9 +420,47 @@
 
     <footer class="footer">
         <div class="container">
-            <p data-i18n="footer.disclaimer"><strong>Disclaimer:</strong> This is an educational tool, not medical
-                advice. Always consult a doctor.</p>
-            <p class="copyright">© 2026 FirstSeizure.com | Expert Reviewed</p>
+            <!-- About Section -->
+            <div class="footer-about">
+                <h3>Created by Epileptologists</h3>
+                <div class="footer-authors">
+                    <div class="author">
+                        <a href="https://x.com/abgohel" target="_blank" rel="noopener">Dr. Abhishek Gohel</a>
+                        <span>DM Neurology, PDF in Epilepsy</span>
+                    </div>
+                    <div class="author">
+                        <a href="https://in.linkedin.com/in/dr-rutul-shah-ba817996" target="_blank" rel="noopener">Dr.
+                            Rutul Shah</a>
+                        <span>DM Neurology, PDF in Epilepsy</span>
+                    </div>
+                </div>
+                <p class="clinic">Gujarat Epilepsy & Neuro Clinic, Ahmedabad | KD Hospital</p>
+            </div>
+
+            <!-- More Resources -->
+            <div class="footer-resources">
+                <h4>More from Our Team</h4>
+                <div class="resource-cards">
+                    <a href="https://epilepsymri.com" target="_blank" class="resource-card">
+                        <span class="resource-icon">🧠</span>
+                        <span class="resource-name">EpilepsyMRI.com</span>
+                        <span class="resource-desc">3T HARNESS Protocol Guide</span>
+                    </a>
+                    <a href="https://epilepsypregnancy.in" target="_blank" class="resource-card">
+                        <span class="resource-icon">🤰</span>
+                        <span class="resource-name">EpilepsyPregnancy.in</span>
+                        <span class="resource-desc">Safe Pregnancy with Epilepsy</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="footer-disclaimer">
+                <p data-i18n="footer.disclaimer"><strong>Disclaimer:</strong> This is an educational tool, not medical
+                    advice. Always consult a doctor.</p>
+            </div>
+
+            <p class="copyright">© 2026 FirstSeizure.com | Expert-Reviewed by Epileptologists</p>
         </div>
     </footer>
 
@@ -386,7 +469,7 @@
             <span class="icon">⏱️</span> <span data-i18n="mobile.timer">Timer</span>
         </button>
         <a href="tel:108" class="action-btn btn-danger">
-            <span class="icon">📞</span> <span data-i18n="mobile.call">Call 112</span>
+            <span class="icon">📞</span> <span data-i18n="mobile.call">Call 108</span>
         </a>
     </div>
 
