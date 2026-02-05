@@ -470,60 +470,41 @@
 
     <script src="script.js"></script>
 
-    <!-- Smooth Parallax Scrolling -->
+    <!-- Smooth Scroll & Reveal (Mobile Optimized) -->
     <style>
         html { scroll-behavior: smooth; }
-        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .scroll-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
-        .hero { position: relative; overflow: hidden; }
-        .hero-text-content, .hero-tool-card { transition: transform 0.1s ease-out, opacity 0.1s ease-out; }
-        .guide-card, .checklist-group, .faq-item { transition: transform 0.3s ease-out; }
     </style>
 
     <script>
     (function() {
         'use strict';
-        const hero = document.querySelector('.hero');
-        const heroText = document.querySelector('.hero-text-content');
-        const heroCard = document.querySelector('.hero-tool-card');
+        const isMobile = window.innerWidth < 769 || 'ontouchstart' in window;
         const revealElements = document.querySelectorAll('.guide-card, .checklist-group, .faq-item, .emergency-card, .next-steps-item, .resource-card');
-        
         revealElements.forEach(el => el.classList.add('scroll-reveal'));
         
-        function throttle(func, limit) {
-            let inThrottle;
-            return function() {
-                if (!inThrottle) { func.apply(this, arguments); inThrottle = true; setTimeout(() => inThrottle = false, limit); }
-            }
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => observer.observe(el));
         
-        function handleScroll() {
-            const scrolled = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            
-            if (hero && scrolled < windowHeight) {
-                const parallaxSpeed = 0.25;
-                if (heroText) {
-                    heroText.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-                    heroText.style.opacity = Math.max(0, 1 - (scrolled / (windowHeight * 0.7)));
+        if (!isMobile && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const heroText = document.querySelector('.hero-text-content');
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const scrolled = window.pageYOffset;
+                        if (heroText && scrolled < window.innerHeight) {
+                            heroText.style.transform = `translateY(${scrolled * 0.15}px)`;
+                            heroText.style.opacity = Math.max(0, 1 - (scrolled / (window.innerHeight * 0.8)));
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
                 }
-                if (heroCard) {
-                    heroCard.style.transform = `translateY(${scrolled * 0.15}px)`;
-                }
-            }
-            
-            revealElements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) el.classList.add('revealed');
-            });
-        }
-        
-        window.addEventListener('scroll', throttle(handleScroll, 16));
-        handleScroll();
-        
-        if (window.innerWidth < 768) {
-            if (heroText) heroText.style.transform = 'none';
-            if (heroCard) heroCard.style.transform = 'none';
+            }, { passive: true });
         }
     })();
     </script>
