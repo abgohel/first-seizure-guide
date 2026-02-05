@@ -17,3 +17,4 @@ Thumbs.db
 # Sensitive
 *.pem
 *.key
+.DS_Store
