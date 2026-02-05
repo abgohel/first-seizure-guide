@@ -1,0 +1,1007 @@
+/* First Seizure - Optimized UX/UI Styles */
+
+:root {
+    /* Color Palette - Higher Contrast for Readability */
+    --primary: #8a63b5;
+    --primary-dark: #6a4c8c;
+    --primary-light: #f3eafa;
+
+    --text-main: #2d2a32;
+    /* Much darker for readability */
+    --text-muted: #5e5b66;
+
+    --danger: #d32f2f;
+    --danger-bg: #fdecea;
+    --success: #2e7d32;
+    --success-bg: #e8f5e9;
+
+    --bg-body: #fdfbff;
+    --bg-card: #ffffff;
+    --border: #e0e0e0;
+
+    /* Spacing & Layout */
+    --container-width: 900px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --shadow-soft: 0 4px 20px rgba(138, 99, 181, 0.08);
+    --shadow-hover: 0 8px 30px rgba(138, 99, 181, 0.15);
+
+    /* Typography */
+    --font-heading: 'Nunito', sans-serif;
+    --font-body: 'Quicksand', sans-serif;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 18px;
+    /* Larger base font for tired eyes */
+    padding-bottom: 80px;
+    /* Space for mobile action bar */
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    color: var(--text-main);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+}
+
+p {
+    margin-bottom: 1.2rem;
+}
+
+/* Utilities */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+.section-alt {
+    background: var(--primary-light);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.nav-link.active-danger {
+    color: var(--danger);
+}
+
+/* Hero Section */
+.hero {
+    padding: 3rem 0;
+    background: linear-gradient(180deg, var(--bg-body) 0%, var(--primary-light) 100%);
+}
+
+.hero-grid {
+    display: grid;
+    gap: 3rem;
+    md-grid-template-columns: 1.2fr 0.8fr;
+}
+
+/* Hero actions - buttons stacked with equal width */
+.hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    max-width: 320px;
+}
+
+.hero-actions .btn,
+.hero-actions .btn.btn-lg,
+.hero-actions .btn.btn-primary,
+.hero-actions .btn.btn-outline {
+    width: 100% !important;
+    min-width: 100% !important;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.breathe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.breathe-dot {
+    width: 10px;
+    height: 10px;
+    background: #4caf50;
+    border-radius: 50%;
+    animation: breathe 4s infinite;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-outline {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: white;
+}
+
+.btn-lg {
+    font-size: 1.1rem;
+    padding: 16px 32px;
+}
+
+/* Timer Card - Central Tool */
+.timer-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-hover);
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.timer-status {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.timer-display {
+    font-family: monospace;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 1rem 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.btn-timer-action {
+    background: var(--primary);
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 16px;
+    border-radius: 50px;
+    border: none;
+}
+
+.timer-card.running .timer-display {
+    color: var(--danger);
+}
+
+.timer-card.running .btn-timer-action {
+    background: var(--text-main);
+}
+
+/* Emergency Section */
+.emergency-alert-box {
+    background: var(--danger-bg);
+    border: 2px solid var(--danger);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.alert-header h2 {
+    color: var(--danger);
+    margin: 0;
+}
+
+.emergency-checklist {
+    list-style: none;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.emergency-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.btn-emergency-call {
+    background: var(--danger);
+    color: white;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+/* Do's and Don'ts */
+.guide-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.guide-card {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 2px solid transparent;
+}
+
+.do-card {
+    background: var(--success-bg);
+    border-color: var(--success);
+}
+
+.dont-card {
+    background: var(--danger-bg);
+    border-color: var(--danger);
+}
+
+.guide-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.guide-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.guide-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Checklist */
+.checklist-container {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.checklist-group {
+    margin-bottom: 2rem;
+}
+
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 8px;
+}
+
+.check-item:hover {
+    background: var(--primary-light);
+}
+
+.checklist-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.check-box {
+    min-width: 24px;
+    height: 24px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checklist-input:checked+.check-box {
+    background: var(--primary);
+}
+
+.checklist-input:checked+.check-box::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+}
+
+.checklist-input:checked~.check-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Mobile Action Bar */
+.mobile-action-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 12px 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border);
+}
+
+.action-btn {
+    flex: 1;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--bg-body);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.action-btn.btn-danger {
+    background: var(--danger);
+    color: white;
+    border: none;
+}
+
+/* Desktop Tweaks */
+@media (min-width: 769px) {
+
+    .mobile-action-bar,
+    .nav-toggle {
+        display: none;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 400px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    /* Simplified for demo, assume hamburger logic in JS */
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+}
+
+/* Smooth transitions for theme switching */
+body,
+.header,
+.mobile-action-bar,
+.timer-card,
+.checklist-container,
+.guide-card,
+.emergency-alert-box,
+.info-card,
+.btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --bg-body: #0f0d14;
+    --bg-card: #1a1625;
+    --text-main: #f5f5f5;
+    --text-muted: #c0b8d0;
+    --border: #4a4060;
+    --primary-light: #2a2438;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode header - better contrast */
+body.dark-mode .header {
+    background: rgba(15, 13, 20, 0.95);
+    border-bottom: 1px solid var(--border);
+}
+
+body.dark-mode .logo {
+    color: #c9a8e8;
+}
+
+body.dark-mode .control-btn {
+    background: #3a3050;
+    border: 2px solid #9b6dc6;
+    color: #f0e8ff;
+    font-weight: 700;
+}
+
+body.dark-mode .control-btn:hover {
+    background: #4a4060;
+    border-color: #c9a8e8;
+}
+
+/* Dark mode buttons - HIGH CONTRAST */
+body.dark-mode .btn-primary {
+    background: #9b6dc6;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(155, 109, 198, 0.4);
+}
+
+body.dark-mode .btn-outline {
+    border: 2px solid #9b6dc6;
+    color: #c9a8e8;
+    background: rgba(155, 109, 198, 0.1);
+}
+
+body.dark-mode .btn-outline:hover {
+    background: rgba(155, 109, 198, 0.25);
+}
+
+body.dark-mode .mobile-action-bar,
+body.dark-mode .timer-card,
+body.dark-mode .checklist-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+body.dark-mode .emergency-checklist li {
+    background: #3e2020;
+    color: #ffcccc;
+}
+
+body.dark-mode .guide-card.do-card {
+    background: #1b3320;
+    color: #cceed0;
+}
+
+body.dark-mode .guide-card.dont-card {
+    background: #3e2020;
+    color: #ffcccc;
+}
+
+body.dark-mode .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+body.dark-mode .breathe-badge {
+    background: #2a2438;
+    color: #e0d0f0;
+    border: 1px solid var(--border);
+}
+
+body.dark-mode .nav-link {
+    color: #c0b8d0;
+}
+
+body.dark-mode .nav-link.active-danger {
+    color: #ff8a8a;
+}
+
+/* Progress bar */
+.progress-bar-container {
+    margin-bottom: 1.5rem;
+}
+
+.progress-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.progress-track {
+    background: var(--border);
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: var(--primary);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Reassurance banner */
+.reassurance-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--primary-light);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-top: 2rem;
+}
+
+.reassurance-banner .icon {
+    font-size: 2rem;
+}
+
+/* Info grid */
+.info-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.info-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.info-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Final section */
+.section-final {
+    background: var(--primary-light);
+}
+
+.share-actions {
+    margin-top: 1.5rem;
+}
+
+/* ===== UX IMPROVEMENTS (Dr. Chen Review) ===== */
+
+/* Larger Touch Targets (48px minimum) */
+.check-item {
+    min-height: 48px;
+    padding: 12px 16px;
+}
+
+.control-btn {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px 16px;
+}
+
+.btn {
+    min-height: 48px;
+    padding: 14px 28px;
+}
+
+/* More spacing in header controls */
+.header-controls {
+    gap: 12px;
+}
+
+/* Mobile: Ghost button for "Next 48 Hours" */
+@media (max-width: 768px) {
+    .btn-outline.btn-lg {
+        background: rgba(138, 99, 181, 0.1);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        font-size: 0.95rem;
+        padding: 12px 24px;
+        min-height: 48px;
+    }
+
+    body.dark-mode .btn-outline.btn-lg {
+        background: rgba(155, 109, 198, 0.15);
+        border: 2px solid #9b6dc6;
+        color: #c9a8e8;
+    }
+
+    .btn-primary.btn-lg {
+        box-shadow: 0 4px 12px rgba(138, 99, 181, 0.3);
+    }
+
+    /* Larger checklist checkboxes on mobile */
+    .check-box {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .breathe-dot {
+        animation: none;
+    }
+}
+
+/* Aria-live region for timer (screen readers) */
+.timer-display[aria-live] {
+    position: relative;
+}
+
+/* FAQ Accordion Styles */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.faq-item summary {
+    padding: 16px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--text-main);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+    transform: rotate(180deg);
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item p {
+    padding: 0 20px 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Dark mode FAQ */
+body.dark-mode .faq-item {
+    background: #2a2440;
+    border-color: #3d3556;
+}
+
+body.dark-mode .faq-item summary {
+    color: #f5f0ff;
+}
+
+body.dark-mode .faq-item summary::after {
+    color: #b794e0;
+}
+
+body.dark-mode .faq-item p {
+    color: #c9bfe0;
+}
+/* Footer Styling */
+.footer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+}
+
+.footer-about {
+    margin-bottom: 2rem;
+}
+
+.footer-about h3 {
+    color: var(--teal);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.footer-authors {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer .author {
+    text-align: center;
+}
+
+.footer .author a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--teal);
+}
+
+.footer .author a:hover {
+    color: var(--teal);
+}
+
+.footer .author span {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.25rem;
+}
+
+.footer .clinic {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.footer-resources {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-resources h4 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--teal);
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid var(--teal);
+    border-radius: 25px;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    background: var(--teal);
+    color: #1a1a2e;
+}
+
+/* Resource Cards */
+.resource-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.resource-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    min-width: 180px;
+    transition: all 0.2s;
+}
+
+.resource-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+}
+
+.resource-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.resource-name {
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.resource-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.footer-disclaimer {
+    margin: 1.5rem 0;
+}
+
+.footer-disclaimer p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.footer .copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 1.5rem;
+}
+

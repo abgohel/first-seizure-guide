@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Immediate guide for first-time seizures. Timer tool, emergency checklist, and expert-reviewed advice by epileptologists for patients and families.">
+    <meta name="keywords" content="first seizure, seizure first aid, epilepsy, seizure timer, emergency seizure, convulsion help, what to do during seizure">
+    <meta name="author" content="Dr. Abhishek Gohel, Dr. Rutul Shah">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#9B7EBD">
+    <link rel="canonical" href="https://firstseizure.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://firstseizure.com/">
+    <meta property="og:title" content="First Seizure Guide & Timer | Expert Help">
+    <meta property="og:description" content="Panic-free guide for first-time seizures. Timer tool, emergency signs, and first aid by epileptologists.">
+    <meta property="og:image" content="https://firstseizure.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="FirstSeizure.com">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="First Seizure Guide & Timer | Expert Help">
+    <meta name="twitter:description" content="Panic-free guide for first-time seizures. Timer tool, emergency signs, and first aid.">
+    <meta name="twitter:image" content="https://firstseizure.com/og-image.png">
+
+    <title>First Seizure | Guide & Timer by Epileptologists</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "First Seizure Guide & Timer",
+        "description": "Expert guide for first-time seizures with timer tool and emergency checklist.",
+        "url": "https://firstseizure.com",
+        "author": [
+            {"@type": "Physician", "name": "Dr. Abhishek Gohel", "medicalSpecialty": "Epileptology"},
+            {"@type": "Physician", "name": "Dr. Rutul Shah", "medicalSpecialty": "Epileptology"}
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Gujarat Epilepsy & Neuro Clinic"
+        },
+        "medicalAudience": {"@type": "MedicalAudience", "audienceType": "Patient"},
+        "about": {"@type": "MedicalCondition", "name": "Seizure"}
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <script src="translations.js"></script>
+<script defer src="https://analytics.meowachat.cloud/script.js" data-website-id="5fe11c22-766f-4117-b3bf-36380bf8909a"></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo" aria-label="First Seizure Home">
+                <span class="logo-icon" aria-hidden="true">💜</span>
+                <span class="logo-text">FirstSeizure</span>
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="#emergency" class="nav-link active-danger" data-i18n="nav.emergency">🚨 Emergency</a>
+                    </li>
+                    <li><a href="#first-aid" class="nav-link" data-i18n="nav.firstaid">First Aid</a></li>
+                    <li><a href="#checklist" class="nav-link" data-i18n="nav.checklist">48h Checklist</a></li>
+                    <li><a href="#medical" class="nav-link" data-i18n="nav.medical">Medical Info</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="lang-toggle" aria-label="Switch Language" title="हिंदी">
+                    EN
+                </button>
+                <button class="control-btn" id="dark-mode-toggle" aria-label="Toggle Dark Mode"
+                    title="Toggle Dark Mode">
+                    🌙
+                </button>
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text-content">
+                    <div class="breathe-badge">
+                        <span class="breathe-dot"></span>
+                        <span data-i18n="hero.badge">Take a deep breath. You found help.</span>
+                    </div>
+                    <h1 data-i18n="hero.title">It's going to be okay.</h1>
+                    <p class="hero-lead" data-i18n="hero.lead">Expert guidance for the moments during and after a first
+                        seizure.</p>
+
+                    <div class="hero-actions">
+                        <a href="#first-aid" class="btn btn-primary btn-lg">
+                            <span>🩹</span> <span data-i18n="hero.btn.now">What to do NOW</span>
+                        </a>
+                        <a href="#checklist" class="btn btn-outline btn-lg">
+                            <span>📋</span> <span data-i18n="hero.btn.48h">Next 48 Hours</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-tool-card">
+                    <div class="timer-card" id="timer-container">
+                        <div class="timer-header">
+                            <span class="timer-label" data-i18n="timer.label">Seizure Timer</span>
+                            <span class="timer-status" data-i18n="timer.ready">Ready</span>
+                        </div>
+                        <div class="timer-display" id="timer-display">00:00</div>
+                        <button id="start-timer" class="btn btn-timer-action">
+                            <span class="icon">▶️</span> <span data-i18n="timer.start">Start Timer</span>
+                        </button>
+                        <p class="timer-note" data-i18n="timer.note">Screen will stay on while timing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="emergency" class="section section-emergency">
+            <div class="container">
+                <div class="emergency-alert-box">
+                    <div class="alert-header">
+                        <h2 data-i18n="emergency.title">🚨 When to Call 108 / 112</h2>
+                    </div>
+                    <div class="alert-content">
+                        <ul class="emergency-checklist">
+                            <li class="critical">
+                                <span class="check-icon">⏱️</span>
+                                <strong data-i18n="emergency.item1">Lasts longer than 5 minutes</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">🔄</span>
+                                <strong data-i18n="emergency.item2">Another seizure starts immediately</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">💧</span>
+                                <strong data-i18n="emergency.item3">Happened in water</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">🤕</span>
+                                <strong data-i18n="emergency.item4">Person was injured</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">🤰</span>
+                                <strong data-i18n="emergency.item5">Person is pregnant or diabetic</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">💨</span>
+                                <strong data-i18n="emergency.item6">Trouble breathing after it ends</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">🌡️</span>
+                                <strong data-i18n="emergency.item7">Adult has seizure with fever</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">🆕</span>
+                                <strong data-i18n="emergency.item8">This is their FIRST seizure ever</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">🧠</span>
+                                <strong data-i18n="emergency.item9">Severe headache before or after</strong>
+                            </li>
+                            <li>
+                                <span class="check-icon">😵</span>
+                                <strong data-i18n="emergency.item10">Confusion lasts more than 1 hour</strong>
+                            </li>
+                        </ul>
+                        <a href="tel:108" class="btn btn-emergency-call btn-full" data-i18n="emergency.call">
+                            📞 Call Emergency Services Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="first-aid" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="firstaid.title">First Aid Guide</h2>
+                    <p data-i18n="firstaid.subtitle">Keep them safe. You cannot "stop" the seizure.</p>
+                </div>
+
+                <div class="guide-grid">
+                    <div class="guide-card do-card">
+                        <h3 data-i18n="firstaid.do">✅ DO</h3>
+                        <ul class="guide-list">
+                            <li data-i18n="firstaid.do1"><strong>Time the seizure</strong> immediately.</li>
+                            <li data-i18n="firstaid.do2"><strong>Cushion their head</strong> with something soft.</li>
+                            <li data-i18n="firstaid.do3"><strong>Loosen tight clothing</strong> around neck.</li>
+                            <li data-i18n="firstaid.do4"><strong>Turn them on their side</strong> if possible (to aid
+                                breathing).</li>
+                            <li data-i18n="firstaid.do5"><strong>Stay with them</strong> until fully awake.</li>
+                        </ul>
+                    </div>
+                    <div class="guide-card dont-card">
+                        <h3 data-i18n="firstaid.dont">❌ DO NOT</h3>
+                        <ul class="guide-list">
+                            <li data-i18n="firstaid.dont1"><strong>DO NOT</strong> put anything in their mouth. (They
+                                cannot swallow their tongue).</li>
+                            <li data-i18n="firstaid.dont2"><strong>DO NOT</strong> hold them down or restrain them.</li>
+                            <li data-i18n="firstaid.dont3"><strong>DO NOT</strong> give food/water until fully alert.
+                            </li>
+                            <li data-i18n="firstaid.dont4"><strong>DO NOT</strong> perform CPR during the seizure.</li>
+                            <li data-i18n="firstaid.dont5"><strong>DO NOT</strong> throw water on them.</li>
+                            <li data-i18n="firstaid.dont6"><strong>DO NOT</strong> shout at them or try to wake them up.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reassurance-banner">
+                    <span class="icon">💬</span>
+                    <div class="text">
+                        <strong data-i18n="firstaid.wakeup">What to say when they wake up:</strong>
+                        <br><span data-i18n="firstaid.wakeup.msg">"You had a seizure. You are safe. I am right
+                            here."</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="checklist" class="section section-alt">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="checklist.title">The First 48 Hours</h2>
+                    <p data-i18n="checklist.subtitle">Don't try to remember everything. Use this checklist.</p>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-label" data-i18n="checklist.progress">Checklist Progress</div>
+                    <div class="progress-track">
+                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="checklist-container">
+                    <div class="checklist-group">
+                        <h3 data-i18n="checklist.day1">Day 1: Safety & Medical</h3>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="safe-home">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item1">Ensure home safety (no bathing alone,
+                                remove hazards)</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="er-visit">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item2">Visit ER if this was the first
+                                seizure</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="sleep">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item3">Ensure full night's sleep
+                                (crucial)</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="no-drive">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item6">No driving until cleared by
+                                doctor</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="no-alcohol">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item7">Avoid alcohol (can trigger
+                                seizures)</span>
+                        </label>
+                    </div>
+
+                    <div class="checklist-group">
+                        <h3 data-i18n="checklist.day2">Day 2: Planning</h3>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="doc-appt">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item4">Schedule Neurologist appointment</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="video-log">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item5">Write down exactly what happened
+                                (duration, movements)</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="triggers">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item8">Note any triggers (lack of sleep,
+                                stress, fever?)</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="diary">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item9">Start a seizure diary</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" class="checklist-input" data-id="er-papers">
+                            <span class="check-box"></span>
+                            <span class="check-text" data-i18n="checklist.item10">Get copies of ER paperwork</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="medical" class="section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 data-i18n="medical.reality.title">🩺 Medical Reality</h3>
+                        <p data-i18n="medical.reality.text">One seizure does <strong>not</strong> mean Epilepsy.
+                            Epilepsy is usually diagnosed after two unprovoked seizures. Your doctor will likely order
+                            an EEG and MRI.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 data-i18n="medical.meds.title">💊 Medications</h3>
+                        <p data-i18n="medical.meds.text">You may not need medication yet. If prescribed, taking it at
+                            the <strong>exact same time</strong> every day is the most important rule.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 data-i18n="medical.driving.title">🚗 Driving</h3>
+                        <p data-i18n="medical.driving.text">Do not drive until cleared by a doctor. This is standard
+                            safety protocol. Most people return to driving after a seizure-free period.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="faq.title">❓ Common Questions</h2>
+                    <p data-i18n="faq.subtitle">Answers to what you're probably wondering right now.</p>
+                </div>
+
+                <div class="faq-container">
+                    <details class="faq-item">
+                        <summary data-i18n="faq.q1">Does one seizure mean I have epilepsy?</summary>
+                        <p data-i18n="faq.a1">No. Epilepsy is defined as 2 or more unprovoked seizures at least 24 hours
+                            apart. Many people have one seizure and never have another.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary data-i18n="faq.q2">Will I have another seizure?</summary>
+                        <p data-i18n="faq.a2">About 40-50% of people who have one unprovoked seizure will have another
+                            within 2 years. The other half won't. Your risk depends on test results and circumstances.
+                        </p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary data-i18n="faq.q3">What caused my seizure?</summary>
+                        <p data-i18n="faq.a3">Sometimes we find a cause (low sugar, alcohol withdrawal, infection, brain
+                            abnormality). Sometimes we don't. "Unknown cause" doesn't mean nothing is wrong — it means
+                            more investigation may be needed.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary data-i18n="faq.q4">Can stress cause seizures?</summary>
+                        <p data-i18n="faq.a4">Stress alone doesn't cause seizures in a normal brain. But stress can
+                            lower seizure threshold if there's underlying susceptibility. If someone says "it was just
+                            stress," they still need evaluation.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary data-i18n="faq.q5">When can I drive again?</summary>
+                        <p data-i18n="faq.a5">This depends on local laws and your doctor's assessment. Generally, a
+                            seizure-free period of 3-12 months is required. Check with your doctor and local licensing
+                            authority.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary data-i18n="faq.q6">Do I have to take medication?</summary>
+                        <p data-i18n="faq.a6">Not necessarily. Treatment is individualized. It depends on your risk
+                            factors, test results, occupation, and personal preference. Discuss with your neurologist.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-final">
+            <div class="container text-center">
+                <h2 data-i18n="footer.alone">You are not alone.</h2>
+                <p data-i18n="footer.message">Millions of people live full, happy, successful lives with
+                    seizures.<br>This is a pause, not a full stop.</p>
+
+                <div class="share-actions">
+                    <button class="btn btn-outline" onclick="shareResource()" data-i18n="footer.share">
+                        📤 Share this Guide
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <!-- About Section -->
+            <div class="footer-about">
+                <h3>Created by Epileptologists</h3>
+                <div class="footer-authors">
+                    <div class="author">
+                        <a href="https://x.com/abgohel" target="_blank" rel="noopener">Dr. Abhishek Gohel</a>
+                        <span>DM Neurology, PDF in Epilepsy</span>
+                    </div>
+                    <div class="author">
+                        <a href="https://in.linkedin.com/in/dr-rutul-shah-ba817996" target="_blank" rel="noopener">Dr. Rutul Shah</a>
+                        <span>DM Neurology, PDF in Epilepsy</span>
+                    </div>
+                </div>
+                <p class="clinic">Gujarat Epilepsy & Neuro Clinic, Ahmedabad | KD Hospital</p>
+            </div>
+
+            <!-- More Resources -->
+            <div class="footer-resources">
+                <h4>More from Our Team</h4>
+                <div class="resource-cards">
+                    <a href="https://epilepsymri.com" target="_blank" class="resource-card">
+                        <span class="resource-icon">🧠</span>
+                        <span class="resource-name">EpilepsyMRI.com</span>
+                        <span class="resource-desc">3T HARNESS Protocol Guide</span>
+                    </a>
+                    <a href="https://epilepsypregnancy.in" target="_blank" class="resource-card">
+                        <span class="resource-icon">🤰</span>
+                        <span class="resource-name">EpilepsyPregnancy.in</span>
+                        <span class="resource-desc">Safe Pregnancy with Epilepsy</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="footer-disclaimer">
+                <p data-i18n="footer.disclaimer"><strong>Disclaimer:</strong> This is an educational tool, not medical advice. Always consult a doctor.</p>
+            </div>
+
+            <p class="copyright">© 2026 FirstSeizure.com | Expert-Reviewed by Epileptologists</p>
+        </div>
+    </footer>
+
+    <div class="mobile-action-bar">
+        <button class="action-btn" id="mobile-timer-btn">
+            <span class="icon">⏱️</span> <span data-i18n="mobile.timer">Timer</span>
+        </button>
+        <a href="tel:108" class="action-btn btn-danger">
+            <span class="icon">📞</span> <span data-i18n="mobile.call">Call 108</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
